@@ -1,0 +1,4 @@
+export PATH=$PATH:$HOME/dotnet:$HOME/.dotnet/tools
+export DOTNET_ROOT=$HOME/dotnet
+#export DISPLAY=
+export EDITOR=nano
