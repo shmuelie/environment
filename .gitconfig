@@ -1,0 +1,45 @@
+[credential]
+	helper = wincred
+[fetch]
+	prune = true
+[diff]
+	tool = vscode
+	noprefix = false
+[difftool]
+	prompt = true
+[difftool "vscode"]
+	cmd = code --wait --diff $LOCAL $REMOTE
+	keepBackup = false
+[merge]
+	tool = vscode
+	renamelimit = 5000
+[mergetool]
+	prompt = true
+[mergetool "vscode"]
+	cmd = code --wait $MERGED
+	keepBackup = false
+	trustExitCode = true
+[alias]
+	agc = gc --aggressive
+	branch-details = branch -vv
+	clean-all = clean -df
+	clean-branches = remote prune origin
+	fetch-all = fetch --all --jobs=8 --recurse-submodules --progress
+	stash-all = stash push -u
+	status-all = status --ignored
+	sync-submodules = submodule update --init --recursive
+	tag-details = show-ref --tags -d
+[core]
+	editor = nano
+	symlinks = true
+	longpaths = true
+	longpath = true
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[pack]
+	useSparse = true
+[pull]
+	rebase = false
