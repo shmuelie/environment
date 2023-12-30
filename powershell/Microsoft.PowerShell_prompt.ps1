@@ -71,8 +71,7 @@ function prompt {
 
 	if ($isGitRepo -and
         ($null -ne (Get-Command git -ErrorAction SilentlyContinue)) -and
-        ($null -ne (Get-Command Write-VcsStatus -ErrorAction SilentlyContinue)) -and
-        ((Get-Location).Path -ne $os)) {
+        ($null -ne (Get-Command Write-VcsStatus -ErrorAction SilentlyContinue))) {
 		Write-Host -NoNewline (Write-VcsStatus)
 	}
     if ($Host.UI.RawUI.CursorPosition.X -ge ($Host.UI.RawUI.BufferSize.Width / 2)) {
