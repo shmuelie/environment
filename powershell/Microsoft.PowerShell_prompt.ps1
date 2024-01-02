@@ -39,9 +39,16 @@ function prompt {
     # If in a git repo, add it's name as a short hand
     if ($isGitRepo) {
         $gitRepositoryName = Get-RepositoryName
+        $gitWorktreePath = (Get-CurrentWorktree).Path
+
+        # If for whatever reason we fail to get the worktree path, just get the git root
+        if ($null -eq $gitWorktreePath) {
+            $gitWorktreePath = Split-Path (Get-GitStatus).GitDir -Parent
+        }
+
         $pathVariables += [PSCustomObject]@{
             Name = $gitRepositoryName
-            Value = ((Get-CurrentWorktree).Path)
+            Value = $gitWorktreePath
         }
 
         $Host.UI.RawUI.WindowTitle = "$gitRepositoryName [$((Get-GitStatus).Branch)] $(GetSessionTitle)"
