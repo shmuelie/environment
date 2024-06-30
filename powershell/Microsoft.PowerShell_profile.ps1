@@ -64,3 +64,5 @@ CreateGlobalConst 'Paths' ($env:Path -split ';' | Where-Object -FilterScript {
 
 # Import the Chocolatey Profile that contains the necessary code to enable tab-completions to function for `choco`.
 TryImportModule "$env:ChocolateyInstall\helpers\chocolateyProfile.psm1"
+# Import vcpkg auto completion
+TryImportModule "$repos\microsoft\vcpkg\scripts\posh-vcpkg"
