@@ -1,3 +1,18 @@
+function Test-Interactive
+{
+    <#
+    .Synopsis
+        Determines whether both the user and process are interactive.
+    #>
+
+    [CmdletBinding()] Param()
+    [Environment]::UserInteractive -and !([Environment]::GetCommandLineArgs() | Where-Object { $_ -ilike '-NonI*' })
+}
+
+if ((Test-Interactive) -eq $false) {
+    return;
+}
+
 # Force loading PSReadLine
 if ($null -eq (Get-Module -Name PSReadLine)) {
 	Import-Module PSReadLine
