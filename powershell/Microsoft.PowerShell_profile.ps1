@@ -55,7 +55,9 @@ if ($null -ne (Get-Command Set-VS2022 -ErrorAction SilentlyContinue)) {
 	CreateGlobalConst 'CppSdkIncludes' ($env:INCLUDE -split ';' | Resolve-Path)
 }
 
-CreateGlobalConst 'Paths' ($env:Path -split ';' | Where-Object -FilterScript { $_ -NE '' } | Resolve-Path)
+CreateGlobalConst 'Paths' ($env:Path -split ';' | Where-Object -FilterScript {
+    ($_ -NE '') -and ((Test-Path -Path $_) -eq $true)
+} | Resolve-Path)
 
 # Load custom prompt
 . "$PSUserRoot\Microsoft.PowerShell_prompt.ps1"
