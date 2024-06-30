@@ -2,7 +2,7 @@ function Get-Worktrees() {
     ((git worktree list --porcelain) -join ',') -split ',,' | ConvertFrom-Csv -Header 'Path','Commit','Branch' | ForEach-Object {
         $_.Path = (Resolve-Path $_.Path.SubString(9))
         $_.Commit = $_.Commit.SubString(5)
-        $_.Branch = $_.Branch.SubString(7)
+        $_.Branch = $_.Branch.SubString(18)
         $_
     }
 }
