@@ -32,7 +32,7 @@ function prompt {
 
     $pathVariables = @()
 
-    $isGitRepo = $null -ne (Get-GitStatus)
+    $isGitRepo = ($null -ne (Get-Module -ListAvailable posh-git)) -and ($null -ne (Get-GitStatus))
 
     $currentPath = Get-Location | Select-Object -ExpandProperty Path
 
@@ -51,7 +51,7 @@ function prompt {
             Value = $gitWorktreePath
         }
 
-        $Host.UI.RawUI.WindowTitle = "$gitRepositoryName [$((Get-GitStatus).Branch)] $(GetSessionTitle)"
+        $Host.UI.RawUI.WindowTitle = "$((Get-GitStatus).Branch) [$gitRepositoryName] $(GetSessionTitle)"
     }
     else {
         $Host.UI.RawUI.WindowTitle = GetSessionTitle
