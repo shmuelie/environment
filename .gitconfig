@@ -36,6 +36,8 @@
 	symlinks = true
 	longpaths = true
 	longpath = true
+	attributesfile = ~/.gitattributes
+	pager = less
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
@@ -45,3 +47,9 @@
 	useSparse = true
 [pull]
 	rebase = false
+[http]
+	sslbackend = openssl
+[init]
+	defaultBranch = main
+[push]
+	autosetupremote = true
