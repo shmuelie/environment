@@ -24,7 +24,9 @@
 	branch-details = branch -vv
 	clean-all = clean -df
 	clean-branches = remote prune origin
+	fast-forward = merge --ff-only @{upstream}
 	fetch-all = fetch --all --jobs=8 --recurse-submodules --progress
+	force-pull = reset --hard @{upstream}
 	stash-all = stash push -u
 	status-all = status --ignored
 	sync-submodules = submodule update --init --recursive
