@@ -22,7 +22,7 @@
 [alias]
 	agc = gc --aggressive
 	branch-details = branch -vv
-	clean-all = clean -df
+	clean-all = clean -fdx
 	clean-branches = remote prune origin
 	fast-forward = merge --ff-only @{upstream}
 	fetch-all = fetch --all --jobs=8 --recurse-submodules --progress
