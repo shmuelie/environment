@@ -1,55 +1,55 @@
 [credential]
-	helper = wincred
+helper = wincred
 [fetch]
-	prune = true
+prune = true
 [diff]
-	tool = vscode
-	noprefix = false
+tool = vscode
+noprefix = false
 [difftool]
-	prompt = true
+prompt = true
 [difftool "vscode"]
-	cmd = code --wait --diff $LOCAL $REMOTE
-	keepBackup = false
+cmd = code --wait --diff $LOCAL $REMOTE
+keepBackup = false
 [merge]
-	tool = vscode
-	renamelimit = 5000
+tool = vscode
+renamelimit = 5000
 [mergetool]
-	prompt = true
+prompt = true
 [mergetool "vscode"]
-	cmd = code --wait $MERGED
-	keepBackup = false
-	trustExitCode = true
+cmd = code --wait $MERGED
+keepBackup = false
+trustExitCode = true
 [alias]
-	agc = gc --aggressive
-	branch-details = branch -vv
-	clean-all = clean -fdx
-	clean-branches = remote prune origin
-	fast-forward = merge --ff-only @{upstream}
-	fetch-all = fetch --all --jobs=8 --recurse-submodules --progress
-	force-pull = reset --hard @{upstream}
-	stash-all = stash push -u
-	status-all = status --ignored
-	sync-submodules = submodule update --init --recursive
-	tag-details = show-ref --tags -d
+agc = gc --aggressive
+branch-details = branch -vv
+clean-all = clean -fdx
+clean-branches = remote prune origin
+fast-forward = merge --ff-only @{upstream}
+fetch-all = fetch --all --jobs=8 --recurse-submodules --progress
+force-pull = reset --hard @{upstream}
+stash-all = stash push -u
+status-all = status --ignored
+sync-submodules = submodule update --init --recursive
+tag-details = show-ref --tags -d
 [core]
-	editor = nano
-	symlinks = true
-	longpaths = true
-	longpath = true
-	attributesfile = ~/.gitattributes
-	pager = less
+editor = nano
+symlinks = true
+longpaths = true
+longpath = true
+attributesfile = ~/.gitattributes
+pager = less
 [filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
+clean = git-lfs clean -- %f
+smudge = git-lfs smudge -- %f
+process = git-lfs filter-process
+required = true
 [pack]
-	useSparse = true
+useSparse = true
 [pull]
-	rebase = false
+rebase = false
 [http]
-	sslbackend = openssl
+sslbackend = openssl
 [init]
-	defaultBranch = main
+defaultBranch = main
 [push]
-	autosetupremote = true
+autosetupremote = true
