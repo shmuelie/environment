@@ -1,24 +1,13 @@
-[credential]
-helper = wincred
 [fetch]
 prune = true
 [diff]
-tool = vscode
 noprefix = false
 [difftool]
 prompt = true
-[difftool "vscode"]
-cmd = code --wait --diff $LOCAL $REMOTE
-keepBackup = false
 [merge]
-tool = vscode
 renamelimit = 5000
 [mergetool]
 prompt = true
-[mergetool "vscode"]
-cmd = code --wait $MERGED
-keepBackup = false
-trustExitCode = true
 [alias]
 agc = gc --aggressive
 branch-details = branch -vv
@@ -47,8 +36,6 @@ required = true
 useSparse = true
 [pull]
 rebase = false
-[http]
-sslbackend = openssl
 [init]
 defaultBranch = main
 [push]
